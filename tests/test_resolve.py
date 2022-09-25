@@ -16,7 +16,7 @@ def test_resolve() -> None:
     assert result[0].required_by == {}
     output = result[2].to_string(add_hash=False).splitlines()
     assert output[0].startswith("certifi==")
-    assert output[1] == "\t# via httpx [certifi]"
-    assert output[2] == "\t# via requests [certifi (>=2017.4.17)]"
-    assert output[3] == "\t# via httpcore [certifi]"
-    assert output[4] == "\t# via urllib3 [certifi ; extra == 'secure']"
+    assert output[1] == "    # via httpx [certifi]"
+    assert output[2] == "    # via requests [certifi (>=2017.4.17)]"
+    assert output[3] == "    # via httpcore [certifi]"
+    assert output[4] == "    # via urllib3 [certifi ; extra == 'secure']"

@@ -46,3 +46,13 @@ def test_pip_compile() -> None:
     file_out = Path(__file__).parent.parent / "requirements.txt"
     result = runner.invoke(app, f"compile --r {p} --o {file_out}")
     assert result.exit_code == 0
+
+
+def test_pip_compile_and_sync() -> None:
+    p = Path(__file__).parent.parent / "requirements.in"
+    file_out = Path(__file__).parent.parent / "requirements.txt"
+    result = runner.invoke(app, f"compile --r {p} --o {file_out}")
+    assert result.exit_code == 0
+
+    result = runner.invoke(app, f"sync --r {file_out}")
+    assert result.exit_code == 0
