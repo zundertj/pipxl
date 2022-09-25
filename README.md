@@ -56,19 +56,19 @@ $ pipxl compile pandas==1.4.3
 The generated file includes all packages, with version, the correct hash, and detailed version information for why the dependency was included:
 ```
 pandas==1.4.3 \
-	--hash=sha256:6f803320c9da732cc79210d7e8cc5c8019aad512589c910c66529eb1b1818230
+    --hash=sha256:6f803320c9da732cc79210d7e8cc5c8019aad512589c910c66529eb1b1818230
 numpy==1.23.3 \
-	--hash=sha256:004f0efcb2fe1c0bd6ae1fcfc69cc8b6bf2407e0f18be308612007a0762b4089
-	# via pandas [numpy (>=1.21.0) ; python_version >= "3.10"]
+    --hash=sha256:004f0efcb2fe1c0bd6ae1fcfc69cc8b6bf2407e0f18be308612007a0762b4089
+    # via pandas [numpy (>=1.21.0) ; python_version >= "3.10"]
 python-dateutil==2.8.2 \
-	--hash=sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
-	# via pandas [python-dateutil (>=2.8.1)]
+    --hash=sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
+    # via pandas [python-dateutil (>=2.8.1)]
 pytz==2022.2.1 \
-	--hash=sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197
-	# via pandas [pytz (>=2020.1)]
+    --hash=sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197
+    # via pandas [pytz (>=2020.1)]
 six==1.16.0 \
-	--hash=sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
-	# via python-dateutil [six (>=1.5)]
+    --hash=sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
+    # via python-dateutil [six (>=1.5)]
 ```
 
 ### sync
