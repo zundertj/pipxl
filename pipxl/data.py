@@ -23,7 +23,7 @@ class ReqFileEntry:
 
         # NOTE: use four spaces, not tabs, to indent, otherwise pip install breaks
         if add_hash and self.hash is not None:
-            out += f"\\\n    --hash={self.hash.replace('=',':')}"
+            out += f" \\\n    --hash={self.hash.replace('=',':')}"
 
         for req_by, specifier in self.required_by.items():
             out += f"\n    # via {req_by}"
