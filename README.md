@@ -95,7 +95,7 @@ pandas==1.4.3
         numpy==1.23.3 [numpy (>=1.21.0) ; python_version >= "3.10"]
 ```
 
-# deptreerev
+### deptreerev
 The output of `deptree` works top-down: for every requested package, the dependencies are listed.
 `deptreerev` works the opposite way: for each package, it lists the packages that depend on it.
 This is useful to figure out why a particular dependency has been installed. 
