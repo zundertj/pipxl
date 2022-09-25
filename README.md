@@ -31,7 +31,7 @@ pip install pipxl
 * `pipxl license`: list the licensing of the dependencies, including sub-dependencies, in an easy format
 
 ### compile
-Compile can take in `pyproject.toml` file, one or more requirements file and direct package specifications, including combinations of those:
+Compile can take in a `pyproject.toml` file, one or more requirements file and direct package specifications, including combinations of those:
 
 ```console
 # pyproject.toml
@@ -40,7 +40,7 @@ $ pipxl compile .
 # pyproject.toml, with custom output_file. Defaults to requirements_lock.txt
 $ pipxl compile . --o my_requirements_lock.txt 
 
-# pyproject.toml, including optional dependencies
+# pyproject.toml, including optional dependencies defined under `all`
 $ pipxl compile .[all]
 
 # single requirements file
@@ -79,7 +79,7 @@ $ pipxl sync --r requirements_lock.txt
 
 ### deptree
 
-The `deptree` command provides
+The `deptree` command shows the dependency tree, listing for each requested package all dependencies, dependencies-of-dependencies, and so on.
 
 ```console
 # pyproject.toml
@@ -116,10 +116,10 @@ six==1.16.0
 This shows that for instance `six` is a dependency of `python-dateutil`, which in turn is a dependency of `pandas`. In square brackets, you can see how the dependency has been defined. For example, `python-dateutil` requires `six >= 1.5`; the pip resolver has selected the most recent version `1.16.0`.
 
 ### license
-Not all packages on PyPi are licensed for usage in all environments, particulary not in corporate environments.
+Not all packages on PyPi are licensed for usage in all environments, particularly not in corporate environments.
 It is thus useful to check under which license the package comes. 
 The problem is complicated by dependencies of the dependencies; there are typically a large number of those and they may change over time.
-The `license` commands collects all depenencies and dependencies-of-dependencies, and groups the output by license.
+The `license` commands collects all dependencies and dependencies-of-dependencies, and groups the output by license.
 Do note that some packages may not have uploaded the license information (properly) to PyPi.
 For those, `*UNKNOWN*` will be displayed. 
 `pipxl` does not attempt to extract it from Github, the wheel, or other sources, as it may result in the wrong license being assigned.
@@ -145,7 +145,8 @@ Initial inspiration for creating `pipxl` comes from the release of pip [22.2](ht
 
 In combination, the two allow us to pass a set of requirements to pip, and get the results of the resolver without hooking into the pip api. Alternatives, most with a narrower scope, such as `pip-tools` do hook into the api, but it is [not official and not recommended](https://pip.pypa.io/en/stable/user_guide/#using-pip-from-your-program), although for lack of alternatives (until pip 22.2!) various packages do use it. By using the CLI, the risk of breakage on pip version upgrades should be limited (although the JSON report may change).
 
-What is still missing is being able to provide a list of packages to be considered installed, as to make use of the `--upgrade-strategy=only-if-needed` option. Right now, `pipxl` will eagerly upgrade all packages not requested (i.e. dependencies-of-dependencies), as it cannot simulate this behaviour except by setting up a temporary virtual environment, actually install current packages, call pip with the `only-if-needed` flag, and record the results.
+What is still missing is being able to provide a list of packages to be considered installed, as to make use of the `--upgrade-strategy=only-if-needed` option. Right now, `pipxl` will eagerly upgrade all packages not requested (i.e. dependencies-of-dependencies), as it cannot simulate this behavior currently.
+In theory, it could set up a temporary virtual environment, actually install current packages, dry-run pip install with the `only-if-needed` flag, and record the results.
 
 ## Non-goals
 * Dependency resolution: `pipxl` uses the pip resolver, and does not, and will not, try to aid pip. `pipxl` is geared towards explaining what `pip`, and in particular the pip resolver, does, not replacing it.
