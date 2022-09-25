@@ -157,6 +157,7 @@ In theory, it could set up a temporary virtual environment, actually install cur
 * [pip-tools](https://github.com/jazzband/pip-tools): offers `pip-compile` and `pip-sync`, similar to `pipxl lock` and `pipxl sync`. Relies on pip internals. See [this issue](https://github.com/jazzband/pip-tools/issues/1654) for using the pip CLI interface instead.
 * [pipgrip](https://github.com/ddelange/pipgrip): pip dependency resolver using the PubGrub algorithm, useful for viewing dependency trees
 * [pipdeptree](https://github.com/tox-dev/pipdeptree): offers functionality similar to `pipxl deptree` and `pipxl deptreerev`
+* [dep_license](https://github.com/abduhbm/dep-license): offers functionality similar to `pipxl license`
 * [poetry](https://github.com/python-poetry/poetry): alternative to pip
 * [pdm](https://github.com/pdm-project/pdm): alternative to pip
 
