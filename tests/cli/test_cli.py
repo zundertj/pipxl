@@ -24,6 +24,17 @@ def test_license() -> None:
     assert "Apache" in result.output
 
 
+def test_license_truncate() -> None:
+    """
+    scipy==1.9.2 is an example where the license field returns the full
+    license file, which pollutes the output. We classify as unknown
+    """
+    result = runner.invoke(app, "license scipy==1.9.2")
+    assert len(result.output) < 1_000
+    assert "BSD" in result.output  # numpy (dependency of scipy)
+    assert "*UNKNOWN*" in result.output  # scipy
+
+
 def test_sync() -> None:
     result = runner.invoke(app, "sync pandas==1.4.3 --dry-run")
     assert "\tpandas==1.4.3" in result.output.splitlines()

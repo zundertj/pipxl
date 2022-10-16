@@ -14,12 +14,17 @@ def license(files_in: list[Path] | None = None, package_spec: list[str] | None =
 
     by_license = {}
     for r in reqs:
-        if r.license not in by_license:
-            by_license[r.license] = [r.name]
+        lic = _parse_license(r.license)
+        if lic not in by_license:
+            by_license[lic] = [r.name]
         else:
-            by_license[r.license] += [r.name]
+            by_license[lic] += [r.name]
 
     # return sorted by license
     by_license = dict(sorted(by_license.items(), key=lambda item: item[0] if item[0] is not None else "*"))
 
     return by_license
+
+
+def _parse_license(lic: str | None) -> str | None:
+    return lic if (lic is not None and len(lic) < 50) else None
