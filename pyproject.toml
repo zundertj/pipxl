@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pipxl"
-description = ''
+description = "Additional tools for pip - compile, sync, deptree & license"
 readme = "README.md"
 requires-python = ">=3.7"
 license = "MIT"
@@ -14,6 +14,9 @@ authors = [
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
