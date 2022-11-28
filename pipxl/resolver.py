@@ -25,7 +25,7 @@ def _pip_install_target_arg(files_in: list[Path] | None = None, package_spec: li
         raise Exception("At least one files and/or package specification needs to be provided")
 
     file_arg = []
-    if files_in is not None:
+    if (files_in is not None) and len(files_in):
         for file in files_in:
             file_arg.extend(["-r", f"{str(file)}"])
 

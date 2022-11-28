@@ -20,7 +20,7 @@ def compile(
 
     # for packages specified in the target(s), we do not have a specifier. We add the files. We do not add
     # the package_spec.
-    if files_in:
+    if (files_in is not None) and len(files_in):
         target_str = " ".join([f"-r {p}" for p in files_in])
         for r in reqs:
             if r.requested:
