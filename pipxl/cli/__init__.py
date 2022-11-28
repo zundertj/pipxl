@@ -109,4 +109,4 @@ def version(
 
 
 def main() -> Any:
-    return app()
+    return app()  # pragma: no cover
