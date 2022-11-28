@@ -52,6 +52,7 @@ dependencies = [
 
 [tool.hatch.envs.default.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=pipxl --cov=tests"
+cov-html = "pytest --cov-report html:cov_html --cov-config=pyproject.toml --cov=pipxl --cov=tests"
 no-cov = "cov --no-cov"
 precommit = "isort . & black . & flake8 . & mypy ."
 
