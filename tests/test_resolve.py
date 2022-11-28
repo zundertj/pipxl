@@ -20,3 +20,9 @@ def test_resolve() -> None:
     assert output[2] == "    # via requests [certifi (>=2017.4.17)]"
     assert output[3] == "    # via httpcore [certifi]"
     assert output[4] == "    # via urllib3 [certifi ; extra == 'secure']"
+
+
+def test_resolve_no_deps() -> None:
+    p = Path(__file__).parent / "requirements.in"
+    result, _ = pip_resolve([p], no_deps=True)
+    assert len(result) == 2
