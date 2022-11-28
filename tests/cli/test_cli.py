@@ -36,8 +36,8 @@ def test_license_truncate() -> None:
 
 
 def test_sync() -> None:
-    result = runner.invoke(app, "sync pandas==1.4.3 --dry-run")
-    assert "\tpandas==1.4.3" in result.output.splitlines()
+    result = runner.invoke(app, "sync pandas==1.5.2 --dry-run")
+    assert "\tpandas==1.5.2" in result.output.splitlines()
 
 
 def test_deptree() -> None:
@@ -56,6 +56,12 @@ def test_pip_compile() -> None:
     p = Path(__file__).parent.parent / "requirements.in"
     file_out = Path(__file__).parent.parent / "requirements.txt"
     result = runner.invoke(app, f"compile --r {p} --o {file_out}")
+    assert result.exit_code == 0
+
+
+def test_pip_compile_from_package_spec() -> None:
+    file_out = Path(__file__).parent.parent / "requirements.txt"
+    result = runner.invoke(app, f"compile pandas==1.5.2 --o {file_out}")
     assert result.exit_code == 0
 
 
