@@ -4,15 +4,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipxl.svg)](https://pypi.org/project/pipxl)
 
 -----
-
-**Table of Contents**
-
-- [Installation](#installation)
-- [Features](#features)
-- [Why pipxl?](#why-pipxl)
-- [Non-goals](#non-goals)
-- [Alternatives](#alternatives)
-- [License](#license)
+Additional tools for pip - compile, sync, deptree & license
 
 ## Installation
 
